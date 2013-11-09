@@ -4,7 +4,8 @@ angular.module('seedhackApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  "angles"
 ])
   .config ($routeProvider) ->
     $routeProvider

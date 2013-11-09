@@ -3,6 +3,7 @@
 angular.module('seedhackApp')
   .controller 'MainCtrl', ($scope) ->
     $scope.stories = [
+        id: 1
         title: "Queen to attend Festival of Remembrance"
         keywords: [
             "Queen"
@@ -22,7 +23,7 @@ angular.module('seedhackApp')
         date: "9 November 2013"
         sentimentScoresRange: 10
         articles: [
-            ''
+            id: 2
             title: "Viewpoint: How should we remember a war?"
             url: 'http://www.bbc.co.uk/news/magazine-24610481'
             keywords: [
@@ -39,6 +40,7 @@ angular.module('seedhackApp')
             date: "9 November 2013"
             sentimentScore: 10
           ,
+            id: 3
             title: "Duke and Duchess of Cambridge help poppy appeal"
             url: 'http://www.bbc.co.uk/news/uk-england-london-24854451'
             keywords: [
@@ -56,6 +58,7 @@ angular.module('seedhackApp')
             sentimentScore: 10
         ]
       ,
+        id: 4
         title: "Guardian editor to face MPs over Snowden intelligence leaks"
         keywords: [
             "MPs"
@@ -75,6 +78,7 @@ angular.module('seedhackApp')
         date: "9 November 2013"
         sentimentScoresRange: 10
         articles: [
+            id: 5
             title: "UK intelligence work defends freedom, say spy chiefs"
             url: 'http://www.bbc.co.uk/news/world-asia-24427490'
             keywords: [
@@ -95,6 +99,7 @@ angular.module('seedhackApp')
             date: "9 November 2013"
             sentimentScore: 2
           ,
+            id: 6
             title: "Web creator Sir Tim Berners-Lee criticises spy agencies"
             url: 'http://www.bbc.co.uk/news/uk-24844427'
             keywords: [
@@ -112,6 +117,7 @@ angular.module('seedhackApp')
             sentimentScore: 10
           ]
       ,
+        id: 7
         title: "Bank's Help to Buy role questioned"
         keywords: [
             "MPs"
@@ -131,6 +137,7 @@ angular.module('seedhackApp')
         date: "9 November 2013"
         sentimentScoresRange: 10
         articles: [
+            id: 8
             title: "UK intelligence work defends freedom, say spy chiefs"
             url: 'http://www.bbc.co.uk/news/world-asia-24427490'
             keywords: [
@@ -151,6 +158,7 @@ angular.module('seedhackApp')
             date: "9 November 2013"
             sentimentScore: 2
           ,
+            id: 9
             title: "Web creator Sir Tim Berners-Lee criticises spy agencies"
             url: 'http://www.bbc.co.uk/news/uk-24844427'
             keywords: [
@@ -172,17 +180,14 @@ angular.module('seedhackApp')
       for story in $scope.stories
         story_id = $scope.stories.indexOf(story)
         $scope.stories[story_id].chart = {
-          ddatasets: [
-            data: [
-                value : story.sentimentScoresRange
-                color: "green"
-              ,
-                value : 100-story.sentimentScoresRange
-                color: "red"
-            ]
+          data: [
+              value : story.sentimentScoresRange
+              color: "green"
+            ,
+              value : 100-story.sentimentScoresRange
+              color: "red"
           ]
         }
-        console.log story
     $scope.awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
