@@ -3,6 +3,10 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'storiesView';
 
+body {
+  background-image: url(../img/diamond_upholstery.png);
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
