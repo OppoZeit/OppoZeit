@@ -23,8 +23,14 @@ class Juicer(Resource):
         super(Juicer, self).__init__(base_url, follow_redirect=True,
                                      max_follow_redirect=10, **kwargs)
 
-    def build_query():
-        return "?url rdf:type cwork:NewsItem ."
+    def build_query(self, document=None):
+        base = "?url rdf:type cwork:NewsItem ."
+        if document:
+            for kind in ['misc', 'themes', 'people', 'places', 'organisations',
+                         'events', 'storylines']:
+                for ref in document[kind]:
+                    base += " ?url <%s> <%s> ." % (ref['rdf_type'], ref['uri'])
+        return base
 
     def request(self, *args, **kwargs):
         kwargs['api_key'] = self.api_key
