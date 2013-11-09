@@ -16,8 +16,6 @@ if 'MONGOLAB_URI' in environ:
 else:
     MONGO_DBNAME = APP_NAME
 
-# Note: on Heroku, need to set the SERVER_NAME config variable
-SERVER_NAME = environ.get('SERVER_NAME', '127.0.0.1:5000')
 DOMAIN = {
     'articles': article,
 }
