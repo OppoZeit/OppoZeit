@@ -3,6 +3,7 @@
 image_schema = {
     "alt": {
         "type": "string",
+        "nullable": True,
     },
     "created_at": {
         "type": "datetime",
@@ -51,14 +52,18 @@ reference_schema = {
 
 article_schema = {
     "cps_id": {
-        "type": "objectid",
+        "type": "string",
+        "unique": True,
     },
     "description": {
         "type": "string",
     },
     "format": {
         "type": "string",
-        "allowed": ["TextualFormat"],
+        "allowed": ["TextualFormat", "VideoFormat"],
+    },
+    "highlight": {
+        "type": "boolean",
     },
     "published": {
         "type": "datetime",
@@ -75,6 +80,7 @@ article_schema = {
     "image": {
         "type": "dict",
         "schema": image_schema,
+        "nullable": True,
     },
     "misc": {
         "type": "list",
