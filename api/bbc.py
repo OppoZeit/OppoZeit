@@ -4,7 +4,7 @@ import os
 from restkit import Resource
 
 from bson import json_util
-from utils import datetime_parser
+from utils import datetime_parser, flatten
 
 try:
     import simplejson as json
@@ -58,9 +58,11 @@ def fetch_articles():
     articles = bbc.articles(after=str(date.today() - timedelta(3)))
     # Get related articles from the past 90 days
     after = str(date.today() - timedelta(90))
-    [bbc.articles(reference=article, after=after) for article in articles]
+    related = [bbc.articles(reference=article, after=after)
+               for article in articles]
+    payload = list(flatten(related)) + articles
     with app.test_request_context():
-        res = post('articles', articles)
+        res = post('articles', payload)
         print json.dumps(res, default=json_util.default, indent=2)
 
 if __name__ == '__main__':
