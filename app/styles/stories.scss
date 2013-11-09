@@ -14,19 +14,22 @@
     cursor: pointer;
     box-shadow: inset 0px 0px 18px 1px whitesmoke;
 }
-.storyBoxImage {
-  position: relative;
-  width: 100%;
-  max-height: 100%%;
-}
+
 .storyBoxTitle{
   position: relative;
   margin-left: 15px;
 }
 .storyBoxPolarity{
+/*
   margin-left: 15px;
   position: bottom;
-/*   bottom:0; */
+*/
+}
+.storyBoxDonut{
+/*   position: relative; */
+  position: absolute;
+  right: 30px;
+  top: 75px;
 }
 
 

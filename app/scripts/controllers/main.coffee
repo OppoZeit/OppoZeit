@@ -182,10 +182,22 @@ angular.module('seedhackApp')
         $scope.stories[story_id].chart = {
           data: [
               value : story.sentimentScoresRange
-              color: "green"
+              color: "#F38630"
             ,
               value : 100-story.sentimentScoresRange
-              color: "red"
+              color: "#69D2E7"
+          ]
+          options: [
+              segmentShowStroke: false
+              segmentStrokeColor: "#fff"
+              segmentStrokeWidth: 1
+              percentageInnerCutout: 10
+              animation: true
+              animationSteps: 100
+              animationEasing: "easeOutBounce"
+              animateRotate: true
+              animateScale: false
+              onAnimationComplete: null
           ]
         }
     $scope.awesomeThings = [
