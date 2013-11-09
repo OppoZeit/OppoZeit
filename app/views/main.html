@@ -9,9 +9,9 @@
 
 <div class="row-fluid">
   <div class="span12" ng-controller="MainCtrl">
-    <div ng-repeat="story in stories">
+    <div ng-animate="'animate'" ng-repeat="story in stories">
       <div class="row-fluid">
-        <div class="span10 storyBox" style="background-image: -webkit-linear-gradient(rgba(29,27,27,0.66) 0%, rgba(29,27,27,0) 34.11%, rgba(28,26,26,0) 69.21%, rgba(28,26,26,0.66) 100%), url({{story.imageUrls.1}});">
+        <div class="span10 storyBox" ng-click="go('stories/1')" style="background-image: -webkit-linear-gradient(rgba(29,27,27,0.66) 0%, rgba(29,27,27,0) 34.11%, rgba(28,26,26,0) 69.21%, rgba(28,26,26,0.66) 100%), url({{story.imageUrls.1}});">
 <!--           <img class="storyBoxImage" src="http://placehold.it/400/"> -->
           <div class="row-fluid storyBoxTitle">
             <div class="span12">
@@ -23,7 +23,7 @@
               <div>{{story.sentimentScoresRange}}</div> polarity
             </div>
             <div class="span6">
-              <canvas id="polarityChart" width="100" height="100"></canvas> <!-- for chart.js -->
+              <canvas donutchart options="myChartOptions" data="story.data" width="100" height="100"></canvas>
             </div>
           </div>
         </div>
@@ -31,6 +31,9 @@
     </div>
   </div>
 </div>
+<script>
+
+</script>
 
 <div class="footer">
 	<p>♥ from the Yeoman team</p>
