@@ -1,5 +1,12 @@
 /* Contains all the styles for the top level stories view */
 
+
+.storyBox:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+
 .storyBox {
   border-radius:5px;
   width: 100%;
@@ -9,11 +16,9 @@
   margin-bottom: 25px;
   color: white;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.7;
 }
-.storyBox:hover {
-    cursor: pointer;
-    box-shadow: inset 0px 0px 18px 1px whitesmoke;
-}
+
 
 .storyBoxTitle{
   position: relative;

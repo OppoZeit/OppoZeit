@@ -5,7 +5,8 @@ angular.module('seedhackApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  "angles"
+  "angles",
+  'ngAnimate',
 ])
   .config ($routeProvider) ->
     $routeProvider
