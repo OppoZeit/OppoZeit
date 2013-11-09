@@ -44,6 +44,8 @@ class Juicer(Resource):
         articles = self.request('articles.json', binding='url', limit=limit,
                                 offset=offset, before=before, after=after,
                                 where=where)
+        if reference:
+            reference['related'] = [article['cps_id'] for article in articles]
         return articles
 
 
@@ -52,6 +54,9 @@ def fetch_articles():
     from api import app
     bbc = Juicer()
     articles = bbc.articles(after=str(date.today() - timedelta(3)))
+    # Get related articles from the past 90 days
+    after = str(date.today() - timedelta(90))
+    [bbc.articles(reference=article, after=after) for article in articles]
     with app.test_request_context():
         res = post('articles', articles)
         print json.dumps(res, default=json_util.default, indent=2)
