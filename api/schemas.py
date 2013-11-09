@@ -110,4 +110,15 @@ article_schema = {
         "type": "list",
         "schema": reference_schema,
     },
+    "related": {
+        "type": "list",
+        "schema": {
+            "type": "string",
+            "data_relation": {
+                "resource": "articles",
+                "field": "cps_id",
+            },
+        },
+        "nullable": True,
+    },
 }
