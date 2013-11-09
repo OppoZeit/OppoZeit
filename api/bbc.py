@@ -23,13 +23,15 @@ class Juicer(Resource):
         super(Juicer, self).__init__(base_url, follow_redirect=True,
                                      max_follow_redirect=10, **kwargs)
 
-    def build_query(self, document=None):
+    def build_query(self, document=None, kinds=None):
         base = "?url rdf:type cwork:NewsItem ."
         if document:
-            for kind in ['misc', 'themes', 'people', 'places', 'organisations',
-                         'events', 'storylines']:
-                for ref in document[kind]:
-                    base += " ?url <%s> <%s> ." % (ref['rdf_type'], ref['uri'])
+            kinds = kinds or ['misc', 'themes', 'people', 'places',
+                              'organisations', 'events', 'storylines']
+            query = ' || '.join(['?thing = <%s>' % ref['uri']
+                                 for kind in kinds for ref in document[kind]])
+            if query:
+                base += ' ?url cwork:tag ?thing . filter (%s) .' % query
         return base
 
     def request(self, *args, **kwargs):
