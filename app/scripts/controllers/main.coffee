@@ -32,3 +32,11 @@ angular.module('seedhackApp')
       'AngularJS'
       'Karma'
     ]
+
+angular.module('seedhackApp')
+  .controller 'CompareCtrl', ($scope) ->
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate'
+      'AngularJS'
+      'Karma'
+    ]

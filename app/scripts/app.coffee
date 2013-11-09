@@ -16,5 +16,8 @@ angular.module('seedhackApp', [
       .when '/story/:id',
         templateUrl: 'views/story.html'
         controller: 'StoryCtrl'
+      .when '/compare',
+        templateUrl: 'views/compare.html'
+        controller: 'CompareCtrl'
       .otherwise
         redirectTo: '/'
