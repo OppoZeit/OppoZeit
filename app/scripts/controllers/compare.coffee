@@ -2,7 +2,7 @@
 
 angular.module('seedhackApp')
 		.controller 'CompareCtrl', ($scope, storyStorage) ->
-                $scope.stories = storyStorage.get()
+                $scope.stories = storyStorage.all()
 
                 $scope.awesomeThings = [
                         'HTML5 Boilerplatessss'
