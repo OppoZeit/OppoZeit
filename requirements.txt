@@ -3,7 +3,9 @@ Flask-RESTful==0.2.5
 Jinja2==2.7.1
 MarkupSafe==0.18
 Werkzeug==0.9.4
+http-parser==0.8.3
 itsdangerous==0.23
-siesta==0.5.1
+restkit==4.2.2
 simplejson==3.3.1
+socketpool==0.5.3
 wsgiref==0.1.2
