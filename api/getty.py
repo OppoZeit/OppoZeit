@@ -1,4 +1,5 @@
 from gettybase import Session
+import unicodedata
 import os
 
 
@@ -14,7 +15,22 @@ class getty():
             exit('Missing Getty API keys')
 
     def search(self, terms):
-        print self.s.search(terms, items=50, from_item=1)
+        return self.s.search(terms, items=5, from_item=1)
 
-    def buy(self, item, max_size):
-        print self.s.buy(item, max_size)
+    def buy(self, item):
+        print type(item)
+        print item
+        output = self.s.buy(item, 1024 * 1024)
+        return output[0]['UrlAttachment']
+
+    def findAndReturn(self, terms, numNeeded):
+        images = []
+        items = self.search(terms)
+        for i in range(0, numNeeded-1):
+            url = self.buy(unicodedata.normalize('NFKD', items[i]['image_id']).encode('ascii', 'ignore'))  # noqa
+            images.append(url)
+
+        print images
+
+g = getty()
+g.findAndReturn('ice, cold', 3)

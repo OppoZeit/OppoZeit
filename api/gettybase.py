@@ -218,12 +218,12 @@ class Session:
         details = self.get_image_details(image_id)[image_id]
 
         request_size = size
-        print request_size
+        # print request_size
         sizekey = None
         selected_size = 0
         for size in details['Sizes']:
             s = size['FileSizeInBytes']
-            print s
+            # print s
             # select the biggest one smaller than MAX_SIZE
             # if none is found the smallest image is returned
             if s < request_size and s > selected_size:
@@ -232,7 +232,7 @@ class Session:
             elif selected_size > request_size and s < selected_size:
                 sizekey = size['SizeKey']
                 selected_size = s
-        print selected_size
+        # print selected_size
         if not sizekey:
             raise Exception("There doesn't seem to be any download sizes.")
 
