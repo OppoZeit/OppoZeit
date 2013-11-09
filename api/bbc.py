@@ -23,4 +23,11 @@ class Juicer(Resource):
         resp = super(Juicer, self).request('get', **kwargs)
         return json.loads(resp.body_string())
 
-bbc = Juicer()
+if __name__ == '__main__':
+    bbc = Juicer()
+
+    # sample query
+    print bbc.request(path='concepts/co-occurrences',
+                      concept='http://dbpedia.org/resource/Roy_Hodgson',
+                      type='http://dbpedia.org/ontology/Person', limit=5,
+                      after='2013-10-01')
