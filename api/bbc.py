@@ -38,20 +38,22 @@ class Juicer(Resource):
         return json.loads(resp.body_string(),
                           object_hook=datetime_parser)['articles']
 
-    def articles(self, limit=100, offset=0, before=None, after=None):
-        after = after or str(date.today() - timedelta(3))
-        return self.request('articles.json', binding='url', limit=limit,
-                            offset=offset, before=before, after=after,
-                            where='?url rdf:type cwork:NewsItem .')
+    def articles(self, limit=100, offset=0, before=None, after=None,
+                 where=None, reference=None):
+        where = where or self.build_query(reference)
+        articles = self.request('articles.json', binding='url', limit=limit,
+                                offset=offset, before=before, after=after,
+                                where=where)
+        return articles
 
 
-def fetch_articles(**kwargs):
+def fetch_articles():
     from eve.methods.post import post
     from api import app
     bbc = Juicer()
-    payload = bbc.articles(**kwargs)
+    articles = bbc.articles(after=str(date.today() - timedelta(3)))
     with app.test_request_context():
-        res = post('articles', payload)
+        res = post('articles', articles)
         print json.dumps(res, default=json_util.default, indent=2)
 
 if __name__ == '__main__':
