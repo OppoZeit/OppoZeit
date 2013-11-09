@@ -9,3 +9,4 @@ restkit==4.2.2
 simplejson==3.3.1
 socketpool==0.5.3
 wsgiref==0.1.2
+Eve==0.1.1
