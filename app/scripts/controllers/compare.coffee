@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('seedhackApp')
-        .controller 'MainCtrl', ($scope) ->
-                $scope.stories = [
+		.controller 'CompareCtrl', ($scope) ->
+			$scope.stories = [
                                 title: "Maldives holds fresh election for president"
                                 keywords: [
                                                 "Maldives"
@@ -148,7 +148,40 @@ angular.module('seedhackApp')
                                         ]
                 ]
                 $scope.awesomeThings = [
-                        'HTML5 Boilerplate'
+                        'HTML5 Boilerplatessss'
                         'AngularJS'
                         'Karma'
                 ]
+                $scope.leftArticleToggle = `function(e) {
+                        if(e.target.id=='twitterleftbut') {
+                                console.log('left tweet clicked');
+                        }
+                        else {
+                                console.log('left article clicked');
+                                $('#left-side').toggleClass('isopen');
+                                $('#left-side .content').delay(250).fadeToggle();
+                                if(e.target.id=='twitterleftbut') console.log('left tweet clicked');
+                        }
+
+			return false;
+
+                }`
+                $scope.rightArticleToggle = `function(e) {
+                        if(e.target.id=='twitterrightbut') {
+                                console.log('right tweet clicked');
+                        }
+                        else {
+                                console.log('right article clicked');
+                                $('#right-side').toggleClass('isopen');
+                                $('#right-side .content').delay(250).fadeToggle();
+                        }
+
+
+			return false;
+                }`
+
+                $scope.myHTML = `function() {
+
+
+                        return "<p>HELLLLLOOOO</p>";
+                }`

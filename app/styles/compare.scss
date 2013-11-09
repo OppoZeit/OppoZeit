@@ -7,6 +7,15 @@
 
 	color: white;
 
+	a {
+		color: black;
+		cursor: pointer;
+
+		:hover {
+
+		}
+	}
+
 	&.wrapper {
 		position: absolute;
 		left: 0px;
@@ -50,6 +59,12 @@
 			}
 		}
 
+		.content {
+			display: none;
+			margin-top: 20px;
+			width: 450px;
+		}
+
 		.inner-left {
 			position: absolute;
 			left: 0px;
@@ -57,9 +72,28 @@
 			width: 50%;
 			height: 100%;
 			background: white;
+			-webkit-transition: 	width .25s ease-in-out;
+			-moz-transition: 		width .25s ease-in-out;
+			-o-transition: 			width .25s ease-in-out;
+			transition: 			width .25s ease-in-out;
+			z-index: 990;
+			&.isopen {
+				width: 100%;
+				z-index: 999;
+				color: white;
+
+				&:hover .inneroverlay{
+					color: white;
+					background: $bgred;
+				}
+
+				&:hover .txtcontent {
+					color: white;
+				}
+			}
 
 			.inneroverlay {
-				background: rgba(244,14,47,0.7);
+				background: $bgred;
 			}
 
 			&:hover .inneroverlay {
@@ -78,10 +112,33 @@
 			width: 50%;
 			height: 100%;
 			background: white;
+			-webkit-transition: 	width .25s ease-in-out;
+			-moz-transition: 		width .25s ease-in-out;
+			-o-transition: 			width .25s ease-in-out;
+			transition: 			width .25s ease-in-out;
+			z-index: 990;
+
+			&.isopen {
+				width: 100%;
+				z-index: 999;
+				background: rgba(0,0,0,.8);
+				color: white;
+
+				&:hover .inneroverlay {
+					color: white;
+					background: $bgblue;
+				}
+
+				&:hover .txtcontent {
+					color: white;
+				}
+
+			}
 
 			.inneroverlay {
-				background: rgba(46,23,224,0.7);
+				background: $bgblue;
 			}
+
 
 			&:hover .inneroverlay {
 				background: rgba(0,0,0,0);
@@ -90,6 +147,7 @@
 			&:hover .txtcontent {
 				color: black;
 			}
+
 
 		}
 

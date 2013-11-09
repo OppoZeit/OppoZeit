@@ -1,0 +1,28 @@
+//common buttons
+
+// button {
+// 	border-radius: 7px;
+// 	background-image: -webkit-linear-gradient(top, $darkgrey, black);
+// 	background-image: -moz-linear-gradient(top, $darkgrey, black);
+// 	background-image: -ms-linear-gradient(top, $darkgrey, black);
+// 	background-image: -o-linear-gradient(top, $darkgrey, black);
+// 	background-image: linear-gradient(top, $darkgrey, black);
+// 	-webkit-transition:	background .5s ease-in;
+// 	-moz-transition:	background .5s ease-in;
+// 	-o-transition:		background .5s ease-in;
+// 	transition:			background .5s ease-in;
+// 	border: 1px solid $verydarkgrey;
+// 	color: white;
+// 	font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+// 	padding: 10px 25px;
+// 	text-align: center;
+
+// 	&:hover {
+// 		background-image: -webkit-linear-gradient(top, $midgrey, $darkgrey);
+// 		background-image: -moz-linear-gradient(top, $midgrey, $darkgrey);
+// 		background-image: -ms-linear-gradient(top, $midgrey, $darkgrey);
+// 		background-image: -o-linear-gradient(top, $midgrey, $darkgrey);
+// 		background-image: linear-gradient(top, $midgrey, $darkgrey);
+// 		border: 1px solid $verydarkgrey;
+// 	}
+// }
