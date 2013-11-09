@@ -3,6 +3,7 @@ import os
 
 from restkit import Resource
 
+from bson import json_util
 from utils import datetime_parser
 
 try:
@@ -37,11 +38,15 @@ class Juicer(Resource):
                             offset=offset, before=before, after=after,
                             where='?url rdf:type cwork:NewsItem .')
 
-if __name__ == '__main__':
-    bbc = Juicer()
 
-    # sample query
-    print bbc.request(path='concepts/co-occurrences',
-                      concept='http://dbpedia.org/resource/Roy_Hodgson',
-                      type='http://dbpedia.org/ontology/Person', limit=5,
-                      after='2013-10-01')
+def fetch_articles(**kwargs):
+    from eve.methods.post import post
+    from api import app
+    bbc = Juicer()
+    payload = bbc.articles(**kwargs)
+    with app.test_request_context():
+        res = post('articles', payload)
+        print json.dumps(res, default=json_util.default, indent=2)
+
+if __name__ == '__main__':
+    fetch_articles()
