@@ -5,6 +5,7 @@ from urlparse import urlparse
 from resources import article
 
 APP_NAME = 'OppoZeit'
+URL_PREFIX = 'api'
 
 if 'MONGOLAB_URI' in environ:
     url = urlparse(environ['MONGOLAB_URI'])
