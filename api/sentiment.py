@@ -7,8 +7,8 @@ def rip_body(url):
     return extractor.getText()
 
 
-def calculateSentiment(url):
-    blob = TextBlob(rip_body(url))
+def calculateSentiment(url, body=None):
+    blob = TextBlob(body or rip_body(url))
     return dict(zip(('polarity', 'strength'), blob.sentiment))
 
 if __name__ == '__main__':
