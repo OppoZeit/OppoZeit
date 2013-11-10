@@ -26,6 +26,15 @@ image_schema = {
     },
 }
 
+sentiment_schema = {
+    "polarity": {
+        "type": "float",
+    },
+    "strength": {
+        "type": "float",
+    }
+}
+
 getty_schema = {
     "url": {
         "type": "string",
@@ -34,16 +43,20 @@ getty_schema = {
         "type": "integer",
     },
     "height": {
-        "type": "integer"
-    }
+        "type": "integer",
+    },
 }
 
-sentiment_schema = {
-    "polarity": {
-        "type": "float",
+tweet_schema = {
+    "handle": {
+        "type": "string",
     },
-    "strength": {
-        "type": "float",
+    "text": {
+        "type": "string",
+    },
+    "sentiment": {
+        "type": "dict",
+        "schema": sentiment_schema,
     }
 }
 
@@ -148,6 +161,10 @@ article_schema = {
     },
     "sentiment": {
         "type": "dict",
-        "schema": sentiment_schema
+        "schema": sentiment_schema,
+    }
+    "related_tweets": {
+        "type": "list",
+        "schema": tweet_schema,
     }
 }
