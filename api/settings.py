@@ -4,7 +4,7 @@ from os import environ
 from urlparse import urlparse
 from resources import article
 
-APP_NAME = 'PolarOpposite'
+APP_NAME = 'OppoZeit'
 
 if 'MONGOLAB_URI' in environ:
     url = urlparse(environ['MONGOLAB_URI'])
