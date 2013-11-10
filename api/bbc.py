@@ -27,8 +27,8 @@ class Juicer(Resource):
     def build_query(self, document=None, kinds=None):
         base = "?url rdf:type cwork:NewsItem ."
         if document:
-            kinds = kinds or ['misc', 'themes', 'people', 'places',
-                              'organisations', 'events', 'storylines']
+            kinds = kinds or ['themes', 'people', 'places', 'organisations',
+                              'events', 'storylines']
             query = ' || '.join(['?thing = <%s>' % ref['uri']
                                  for kind in kinds for ref in document[kind]])
             if query:
