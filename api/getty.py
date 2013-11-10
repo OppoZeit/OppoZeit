@@ -32,5 +32,6 @@ class getty():
 
         print images
 
-g = getty()
-g.findAndReturn('ice, cold', 3)
+if __name__ == '__main__':
+    g = getty()
+    g.findAndReturn('ice, cold', 3)
