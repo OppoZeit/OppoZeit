@@ -41,7 +41,7 @@ class Juicer(Resource):
         return json.loads(resp.body_string(),
                           object_hook=datetime_parser)['articles']
 
-    def articles(self, limit=10, offset=0, before=None, after=None,
+    def articles(self, limit=50, offset=0, before=None, after=None,
                  where=None, reference=None, sleep=0):
         if sleep:
             time.sleep(sleep)
@@ -50,7 +50,11 @@ class Juicer(Resource):
                                 offset=offset, before=before, after=after,
                                 where=where)
         if reference:
-            reference['related'] = [article['cps_id'] for article in articles]
+            ids = [a['cps_id'] for a in articles] + [reference['cps_id']]
+            related = lambda skip: [i for i in ids if i != skip]
+            for article in articles:
+                article['related'] = related(article['cps_id'])
+            reference['related'] = related(reference['cps_id'])
         print "Query '%s' returned %d articles." % (where, len(articles))
         return articles
 
