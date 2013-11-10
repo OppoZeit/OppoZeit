@@ -21,7 +21,7 @@ class getty():
         print type(item)
         print item
         output = self.s.buy(item, 1024 * 1024)
-        return output[0]['UrlAttachment']
+        return output
 
     def findAndReturn(self, terms, numNeeded):
         images = []

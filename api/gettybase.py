@@ -221,6 +221,7 @@ class Session:
         # print request_size
         sizekey = None
         selected_size = 0
+        size_details = {}
         for size in details['Sizes']:
             s = size['FileSizeInBytes']
             # print s
@@ -229,9 +230,13 @@ class Session:
             if s < request_size and s > selected_size:
                 sizekey = size['SizeKey']
                 selected_size = s
+                size_details['width'] = size['PixelWidth']
+                size_details['height'] = size['PixelHeight']
             elif selected_size > request_size and s < selected_size:
                 sizekey = size['SizeKey']
                 selected_size = s
+                size_details['width'] = size['PixelWidth']
+                size_details['height'] = size['PixelHeight']
         # print selected_size
         if not sizekey:
             raise Exception("There doesn't seem to be any download sizes.")
@@ -278,4 +283,7 @@ class Session:
         if r['ResponseHeader']['Status'] != 'success':
             raise Exception(r['ResponseHeader'])
 
-        return r['CreateDownloadRequestResult']['DownloadUrls']
+        url = r['CreateDownloadRequestResult']['DownloadUrls'][0]['UrlAttachment']  # noqa
+
+        return {'url': url, 'width': size_details['width'],
+                'height': size_details['height']}
