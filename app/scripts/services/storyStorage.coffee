@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('seedhackApp')
-  .factory 'storyStorage', () ->
+  .factory 'storyStorage', ($http) ->
     stories = [
       {
         id: 1
@@ -162,10 +162,18 @@ angular.module('seedhackApp')
       }
     ]
     all: ->
+      stories2 = $http.get("https://oppozeit.herokuapp.com/articles")
+        .success (response) ->
+          console.log response.data
       return stories
     get: (id) ->
       for story in stories
         if story.id == id
           return story
+      story = $http.get("https://oppozeit.herokuapp.com/articles/"+id)
+        .success (response) ->
+          consloe.log response.data
+      return story
+
     put: (story) ->
       console.log ''
