@@ -19,6 +19,23 @@ $bgblue: rgba(46,23,224,0.7);
 		}
 	}
 
+	#naviback {
+		position: absolute;
+		z-index: 9999;
+		right: 20px;
+		bottom: 35px;
+		color: white;
+
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+	}
+
 	&.wrapper {
 		position: absolute;
 		left: 0px;

@@ -15,12 +15,12 @@ angular.module('seedhackApp')
         $scope.stories[story_id].chart = {
           data: [
             {
-              value: 80
-              color: "#F38630"
+              value: story.sentimentScoresRange
+              color: "#e0307f"
             },
             {
-              value: 20
-              color: "#69D2E7"
+              value: 100-story.sentimentScoresRange
+              color: "#1750d2"
             }
           ]
           options: {

@@ -1,1 +1,36 @@
-<p>This is the Story view.</p>
+<div ng-bind-html="myHTML()">
+
+</div>
+
+<div id="compare" class="wrapper">
+  <div id="left-side" class="inner-left" ng-click="leftArticleToggle($event)" >
+    <div class="bgimage" style="background: url({{story.articles[0].imageUrls[0]}}); background-size: cover; background-position:center; "></div>
+    <div class="inneroverlay"></div>
+    <div class="txtcontent">
+      <div class="inner">
+        <h1>{{story.articles[0].title}}</h1>
+        <div class="content">
+          <p>{{story.articles[0].snippet}}</p>
+          <p>Read more: <a href="{{story.articles[0].url}}" target="_blank">{{story.articles[0].url}}</a></p>
+          <p><button id="twitterleftbut" type="button" class="btn btn-danger" data-url="{{story.articles[0].url}}">Support &amp; Tweet</button> &nbsp;<a>No way!</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="right-side" class="inner-right" ng-click="rightArticleToggle($event)">
+    <div class="bgimage" style="background: url({{story.articles[1].imageUrls[0]}}); background-size: cover; background-position:center; "></div>
+    <div class="inneroverlay"></div>
+    <div class="txtcontent">
+      <div class="inner">
+        <h1>{{story.articles[1].title}}</h1>
+        <div class="content">
+          <p>{{story.articles[1].snippet}}</p>
+          <p>Read more: <a href="{{story.articles[1].url}}" target="_blank">{{story.articles[1].url}}</a></p>
+          <p><button id="twitterrightbut" type="button" class="btn btn-primary" data-url="{{story.articles[1].url}}">Support &amp; Steet</button> &nbsp;<a>No way!</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="naviback"><a href="/"><i class="glyphicon glyphicon-chevron-left" style="margin-top: 3px;"></i> Back to main</a></div>
+  <div id="comparefooter"><div class="footerleft"><p>{{procon().leftpercentage}}%</p></div><div class="footerright"><p>{{procon().rightpercentage}}%</p></div></div>
+</div>
