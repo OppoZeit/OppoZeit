@@ -9,7 +9,7 @@ def rip_body(url):
 
 def calculateSentiment(url):
     blob = TextBlob(rip_body(url))
-    return blob.sentiment
+    return dict(zip(('polarity', 'strength'), blob.sentiment))
 
 if __name__ == '__main__':
     url = 'http://www.theguardian.com/commentisfree/2013/nov/09/hillary-clinton-2016-formidable-frontrunner'  # noqa
