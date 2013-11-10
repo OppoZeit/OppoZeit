@@ -2,6 +2,7 @@
 
 from schemas import article_schema
 from sentiment import calculateSentiment, rip_body
+from twitter import findSemanticTweets
 
 
 def before_insert_articles(documents):
@@ -10,6 +11,7 @@ def before_insert_articles(documents):
         d['_id'] = d['cps_id']
         d['body_text'] = rip_body(d['url'])
         d['sentiment'] = calculateSentiment(d['url'], body=d['body_text'])
+        d['related_tweets'] = findSemanticTweets(d['url'])
 
 article = {
     "item_title": "article",
