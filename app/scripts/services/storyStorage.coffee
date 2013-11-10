@@ -21,15 +21,15 @@ angular.module('seedhackApp')
       articles: [
         {
           id: 2
-          title: "Viewpoint: How should we remember a war?"
-          url: 'http://www.bbc.co.uk/news/magazine-24610481'
+          title: "'No blackmail' over Govan and Scotstoun shipyard jobs"
+          url: 'http://www.bbc.co.uk/news/uk-scotland-glasgow-west-24847413'
           keywords: [
             "Queen",
             "England"
           ]
-          snippet: "It all started with a bike ride. We'd planned it at school during French on a Friday afternoon, but when Saturday dawned, I wasn't so sure. The wind blew and the rain fell. But we pressed on, and in time the winds eased, and our progress improved."
+          snippet: "Scottish Secretary Alistair Carmichael has denied holding a gun to Scotlands head over shipbuilding jobs. Scottish Secretary Alistair Carmichael has denied holding a gun to Scotland's head over shipbuilding jobs. Scottish Secretary Alistair Carmichael has denied holding a gun to Scotland's head over shipbuilding jobs."
           imageUrls: [
-            "http://news.bbcimg.co.uk/media/images/70911000/jpg/_70911593_141601697.jpg",
+            "http://news.bbcimg.co.uk/media/images/70945000/jpg/_70945366_bae_getty.jpg",
             "http://news.bbcimg.co.uk/media/images/70905000/jpg/_70905050_pensioners_getty.jpg"
           ]
           date: "9 November 2013"
@@ -37,15 +37,15 @@ angular.module('seedhackApp')
         },
         {
           id: 3
-          title: "Duke and Duchess of Cambridge help poppy appeal"
+          title: "BAE cuts may cost economy £195m and 2,400 jobs"
           url: 'http://www.bbc.co.uk/news/uk-england-london-24854451'
           keywords: [
             "Duke",
             "England"
           ]
-          snippet: "The Queen has long taken an interest in the financial crisis, ever since she famously asked in 2008 why nobody had seen the collapse coming."
+          snippet: "The wider impact of the 800 staff cuts planned for the Clyde shipyards has been estimated at a total of 2,400 jobs, including suppliers."
           imageUrls: [
-            "http://www.itinerarist.com/wp-content/uploads/2013/04/france-normal.jpg",
+            "http://www.jimbojack.com/Countries/Bangladesh/Bangladesh_Shipyards_025.jpg",
             "http://www.thetimes.co.uk/tto/multimedia/archive/00365/118386585_01_365293c.jpg"
           ]
           date: "9 November 2013"
