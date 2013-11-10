@@ -1,23 +1,83 @@
 /* Contains all the styles for the top level stories view */
+.container {
+  widht: 100%;
+  height: auto;
+}
 
+.headerlogo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  background: rgba(255,255,255,0.75);
 
-.storyBox:hover {
+  img {
+    margin-top: 10px;
+    margin-left: 17px;
+  }
+}
+
+#compare.main {
+  padding-top: 100px;
+  overflow-x: hidden;
+  background: white;
+  a, a:hover {
+    text-decoration: none;
+  }
+
+  .footer {
+    padding-left: 20px;
+    padding-left: 20px;
+
+  }
+}
+
+.storyBox .overlaybox {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   opacity: 1;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background: rgba(123,102,13,0.6);
+  -webkit-transition: opacity .25s ease-in;
+ -moz-transition:     opacity .25s ease-in;
+ -o-transition:       opacity .25s ease-in;
+ transition:          opacity .25s ease-in;
 }
 
+.storyBox:hover .overlaybox {
+  opacity: 0;
+}
 
 .storyBox {
-  border-radius:5px;
+  border-radius:0px;
   width: 100%;
   height: 200px;
-  padding: 5px;
+  padding: 0px;
   background-size: cover;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   color: white;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0.7;
+  opacity: 1;
+  text-decoration: none;
+  overflow: hidden;
 }
+
+
+// .storyBox {
+//   border-radius:5px;
+//   width: 100%;
+//   height: 200px;
+//   padding: 5px;
+//   background-size: cover;
+//   margin-bottom: 25px;
+//   color: white;
+//   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+//   opacity: 0.7;
+// }
 
 
 .storyBoxTitle{
@@ -25,6 +85,15 @@
   margin-left: 15px;
 }
 .storyBoxPolarity{
+  margin-left: 45px;
+  text-transform: capitalize;
+
+  h3 {
+    padding: 0px;
+    margin: 0px;
+    margin-left: -12px;
+
+  }
 /*
   margin-left: 15px;
   position: bottom;

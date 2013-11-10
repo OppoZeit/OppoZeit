@@ -5,21 +5,17 @@ $verydarkgrey: rgba(10,10,10,1);
 $bgred: rgba(244,14,47,0.7);
 $bgblue: rgba(46,23,224,0.7);
 
-.container {
-	width: 100%;
-	height: 100%;
-}
-
 #compare {
 
 	color: white;
 
 	a {
-		color: black;
+		color: white;
 		cursor: pointer;
+		text-decoration: underline;
 
-		:hover {
-
+		&:hover {
+			text-decoration: none;
 		}
 	}
 
