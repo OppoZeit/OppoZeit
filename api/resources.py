@@ -1,11 +1,11 @@
 """Resources."""
 
 from schemas import article_schema
-from sentiment import calculateSentiment, rip_body
-from twitter import findSemanticTweets
 
 
 def before_insert_articles(documents):
+    from sentiment import calculateSentiment, rip_body
+    from twitter import findSemanticTweets
     for d in documents:
         # Copy cps_id to _id since we want to use it as unique identifier
         d['_id'] = d['cps_id']
