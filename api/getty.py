@@ -3,7 +3,7 @@ import unicodedata
 import os
 
 
-class getty():
+class Getty():
 
     def __init__(self):
         try:
@@ -33,5 +33,5 @@ class getty():
         print images
 
 if __name__ == '__main__':
-    g = getty()
+    g = Getty()
     g.findAndReturn('ice, cold', 3)
