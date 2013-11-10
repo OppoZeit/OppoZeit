@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 import os
+import time
 
 from restkit import Resource
 
@@ -40,14 +41,17 @@ class Juicer(Resource):
         return json.loads(resp.body_string(),
                           object_hook=datetime_parser)['articles']
 
-    def articles(self, limit=100, offset=0, before=None, after=None,
-                 where=None, reference=None):
+    def articles(self, limit=10, offset=0, before=None, after=None,
+                 where=None, reference=None, sleep=0):
+        if sleep:
+            time.sleep(sleep)
         where = where or self.build_query(reference)
         articles = self.request('articles.json', binding='url', limit=limit,
                                 offset=offset, before=before, after=after,
                                 where=where)
         if reference:
             reference['related'] = [article['cps_id'] for article in articles]
+        print "Query '%s' returned %d articles." % (where, len(articles))
         return articles
 
 
@@ -57,7 +61,7 @@ def fetch_articles():
     articles = bbc.articles(after=str(date.today() - timedelta(3)))
     # Get related articles from the past 90 days
     after = str(date.today() - timedelta(90))
-    related = [bbc.articles(reference=article, after=after)
+    related = [bbc.articles(reference=article, after=after, sleep=1)
                for article in articles]
     res = insert_or_update(list(unique(list(flatten(related)) + articles,
                                        key=lambda a: a['cps_id'])))
