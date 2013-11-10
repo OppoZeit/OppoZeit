@@ -2,9 +2,13 @@ from textblob import TextBlob
 from boilerpipe.extract import Extractor
 
 
-def calculateSentiment(url):
+def rip_body(url):
     extractor = Extractor(extractor='ArticleExtractor', url=url)
-    blob = TextBlob(extractor.getText())
+    return extractor.getText()
+
+
+def calculateSentiment(url):
+    blob = TextBlob(rip_body(url))
     return blob.sentiment
 
 if __name__ == '__main__':
