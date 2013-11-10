@@ -1,20 +1,25 @@
 'use strict'
 
 angular.module('seedhackApp')
-  .controller 'MainCtrl', ($scope, storyStorage, $location) ->
-    console.log storyStorage.get(1)
+  .controller 'MainCtrl', ($scope, storyStorage, $location, $http) ->
     $scope.stories = storyStorage.all()
+    # console.log storyStorage.all()
+    # $http.get("https://oppozeit.herokuapp.com/api/articles",
+    # ).success (data, status) ->
+    #   $scope.stories = data
+    #   console.log $scope.stories
+
     $scope.$watch 'stories', () ->
       for story in $scope.stories
         story_id = $scope.stories.indexOf(story)
         $scope.stories[story_id].chart = {
           data: [
             {
-              value: story.sentimentScoresRange
+              value: 80
               color: "#F38630"
             },
             {
-              value: 100-story.sentimentScoresRange
+              value: 20
               color: "#69D2E7"
             }
           ]
@@ -31,5 +36,5 @@ angular.module('seedhackApp')
             onAnimationComplete: null
           }
         }
-    $scope.showStory = ($id) ->
-      $location.path("/compare")
+    $scope.showStory = (story) ->
+      $location.path("/story/"+story._id)
