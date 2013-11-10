@@ -12,7 +12,7 @@
       <div ng-animate="'animate'" ng-repeat="story in stories">
         <a ng-click="showStory(story)">
           <div class="row"> <!-- each box  -->
-            <div class="col-lg-10 storyBox" ng-style="{'background-image': 'url(\'' + story.imageUrls.1 + '\')'}; " >
+            <div class="col-lg-10 storyBox" ng-style="{'background-image': 'url(\'' + story.image.origin + '\')'}; " >
               <div class="storyBoxOverlay"></div>
               <div class="overlaybox"></div>
               <div class="row storyBoxTitle">
