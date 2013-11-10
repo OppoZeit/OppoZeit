@@ -9,3 +9,4 @@ boilerpipe==1.2.0.0
 argparse==1.2.1
 requests==1.1.0
 setuptools==1.3.2
+nltk==2.0.4
