@@ -19,3 +19,6 @@ else:
 DOMAIN = {
     'articles': article,
 }
+
+# FIXME: Temporarily allow CORS requests for development purposes
+X_DOMAINS = "*"
