@@ -148,10 +148,13 @@ article_schema = {
         "type": "list",
         "schema": {
             "type": "string",
-            "data_relation": {
-                "resource": "articles",
-                "field": "cps_id",
-            },
+            # We can't enforce a foreign key constraint since we otherwise get
+            # a race condition when inserting related articles if they're not
+            # yet in the database
+            # "data_relation": {
+            #     "resource": "articles",
+            #     "field": "cps_id",
+            # },
         },
         "nullable": True,
     },
