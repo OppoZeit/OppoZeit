@@ -23,14 +23,15 @@ class Getty():
         output = self.s.buy(item, 1024 * 1024)
         return output
 
-    def findAndReturn(self, terms, numNeeded):
+    def findAndReturn(self, terms, needed):
         images = []
         items = self.search(terms)
-        for i in range(0, numNeeded-1):
-            url = self.buy(unicodedata.normalize('NFKD', items[i]['image_id']).encode('ascii', 'ignore'))  # noqa
+        for i, item in enumerate(items):
+            if i >= needed:
+                break
+            url = self.buy(unicodedata.normalize('NFKD', item['image_id']).encode('ascii', 'ignore'))  # noqa
             images.append(url)
-
-        print images
+        return images
 
 if __name__ == '__main__':
     g = Getty()

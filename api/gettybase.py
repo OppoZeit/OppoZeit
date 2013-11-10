@@ -69,7 +69,8 @@ class Session:
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            raise Exception(r['ResponseHeader'])
+            #raise Exception(r['ResponseHeader'])
+            return []
 
         self.__token = r['CreateSessionResult']['Token']
         self.__secure_token = r['CreateSessionResult']['SecureToken']
@@ -138,7 +139,8 @@ class Session:
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            raise Exception(r['ResponseHeader'])
+            #raise Exception(r['ResponseHeader'])
+            return []
 
         ret = []
         for image in r['SearchForImagesResult']['Images']:
