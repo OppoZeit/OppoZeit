@@ -1,10 +1,8 @@
 'use strict'
 
 angular.module('seedhackApp')
-  .controller 'MainCtrl', ($scope, storyStorage) ->
-    # sample query for story with id = 1
-    # console.log storyStorage.get(1)
-
+  .controller 'MainCtrl', ($scope, storyStorage, $location) ->
+    console.log storyStorage.get(1)
     $scope.stories = storyStorage.all()
     $scope.$watch 'stories', () ->
       for story in $scope.stories
@@ -24,7 +22,7 @@ angular.module('seedhackApp')
             segmentShowStroke: false
             segmentStrokeColor: "#fff"
             segmentStrokeWidth: 1
-            percentageInnerCutout: 10
+            percentageInnerCutout: 75
             animation: true
             animationSteps: 100
             animationEasing: "easeOutBounce"
@@ -33,3 +31,5 @@ angular.module('seedhackApp')
             onAnimationComplete: null
           }
         }
+    $scope.showStory = ($id) ->
+      $location.path("/compare")
