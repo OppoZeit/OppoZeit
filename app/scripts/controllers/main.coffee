@@ -2,18 +2,23 @@
 
 angular.module('seedhackApp')
   .controller 'MainCtrl', ($scope, storyStorage) ->
-    console.log storyStorage.get(1)
+    # sample query for story with id = 1
+    # console.log storyStorage.get(1)
+
     $scope.stories = storyStorage.all()
     $scope.$watch 'stories', () ->
       for story in $scope.stories
         story_id = $scope.stories.indexOf(story)
         $scope.stories[story_id].chart = {
           data: [
-              value : story.sentimentScoresRange
+            {
+              value: story.sentimentScoresRange
               color: "#F38630"
-            ,
-              value : 100-story.sentimentScoresRange
+            },
+            {
+              value: 100-story.sentimentScoresRange
               color: "#69D2E7"
+            }
           ]
           options: {
             segmentShowStroke: false
