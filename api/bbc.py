@@ -4,7 +4,7 @@ import os
 from restkit import Resource
 
 from bson import json_util
-from utils import datetime_parser, flatten
+from utils import datetime_parser, flatten, unique
 
 try:
     import simplejson as json
@@ -52,18 +52,16 @@ class Juicer(Resource):
 
 
 def fetch_articles():
-    from eve.methods.post import post
-    from api import app
+    from api import insert_or_update
     bbc = Juicer()
     articles = bbc.articles(after=str(date.today() - timedelta(3)))
     # Get related articles from the past 90 days
     after = str(date.today() - timedelta(90))
     related = [bbc.articles(reference=article, after=after)
                for article in articles]
-    payload = list(flatten(related)) + articles
-    with app.test_request_context():
-        res = post('articles', payload)
-        print json.dumps(res, default=json_util.default, indent=2)
+    res = insert_or_update(list(unique(list(flatten(related)) + articles,
+                                       key=lambda a: a['cps_id'])))
+    print json.dumps(res, default=json_util.default, indent=2)
 
 if __name__ == '__main__':
     fetch_articles()
