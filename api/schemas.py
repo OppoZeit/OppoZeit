@@ -57,7 +57,7 @@ tweet_schema = {
     "sentiment": {
         "type": "dict",
         "schema": sentiment_schema,
-    }
+    },
 }
 
 reference_schema = {
@@ -162,9 +162,12 @@ article_schema = {
     "sentiment": {
         "type": "dict",
         "schema": sentiment_schema,
-    }
+    },
     "related_tweets": {
         "type": "list",
         "schema": tweet_schema,
-    }
+    },
+    "body_text": {
+        "type": "string",
+    },
 }
