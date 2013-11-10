@@ -1,4 +1,4 @@
-from os import environ, path
+from os import environ
 from eve import Eve
 from eve.methods.post import post
 from flask import render_template
@@ -6,10 +6,7 @@ from flask import render_template
 from resources import before_insert_articles
 from settings import APP_NAME
 
-static_folder = path.abspath(path.join(path.dirname(__file__),
-                                       '..', 'app', 'dist'))
-app = Eve(APP_NAME, static_folder=static_folder, template_folder=static_folder,
-          static_url_path='/static')
+app = Eve(APP_NAME, template_folder='static')
 app.on_insert_articles += before_insert_articles
 
 
