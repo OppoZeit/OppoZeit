@@ -11,6 +11,7 @@ angular.module('seedhackApp')
 
     $scope.$watch 'stories', () ->
       for story in $scope.stories
+        story.sentimentScoresRange = Math.abs(Math.round(story.sentiment.strength*100))
         story_id = $scope.stories.indexOf(story)
         $scope.stories[story_id].chart = {
           data: [
