@@ -1,11 +1,21 @@
-from os import environ
+from os import environ, path
 from eve import Eve
 from eve.methods.post import post
+from flask import render_template
 
 from resources import before_insert_articles
+from settings import APP_NAME
 
-app = Eve()
+static_folder = path.abspath(path.join(path.dirname(__file__),
+                                       '..', 'app', 'dist'))
+app = Eve(APP_NAME, static_folder=static_folder, template_folder=static_folder,
+          static_url_path='/static')
 app.on_insert_articles += before_insert_articles
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 def update_if_exists(articles):
