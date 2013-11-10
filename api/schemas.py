@@ -26,6 +26,27 @@ image_schema = {
     },
 }
 
+getty_schema = {
+    "url": {
+        "type": "string",
+    },
+    "width": {
+        "type": "integer",
+    },
+    "height": {
+        "type": "integer"
+    }
+}
+
+sentiment_schema = {
+    "polarity": {
+        "type": "float",
+    },
+    "strength": {
+        "type": "float",
+    }
+}
+
 reference_schema = {
     "uri": {
         "type": "string",  # URL
@@ -121,4 +142,12 @@ article_schema = {
         },
         "nullable": True,
     },
+    "getty_images": {
+        "type": "list",
+        "schema": getty_schema,
+    },
+    "sentiment": {
+        "type": "dict",
+        "schema": sentiment_schema
+    }
 }
