@@ -19,24 +19,26 @@ def findSemanticTweets(url):
     opinion = 0
     tweets = []
 
-    iterator = tweepy.Cursor(api.search, url, count=100)
-
-    for t in iterator.items():
-        # for t in tweets:
-        # print t.author.screen_name
-        total = total + 1
-        blob = TextBlob(t.text)
-        if blob.sentiment[1] != 0:
-            d = {}
-            d['handle'] = t.author.screen_name
-            d['text'] = t.text
-            s = blob.sentiment
-            d['sentiment'] = {}
-            d['sentiment']['polarity'] = s[0]
-            d['sentiment']['strength'] = s[1]
-            print (t.text, blob.sentiment)
-            opinion = opinion + 1
-            tweets.append(d)
+    try:
+        for t in tweepy.Cursor(api.search, url, count=100).items():
+            # for t in tweets:
+            # print t.author.screen_name
+            total = total + 1
+            blob = TextBlob(t.text)
+            if blob.sentiment[1] != 0:
+                d = {}
+                d['handle'] = t.author.screen_name
+                d['text'] = t.text
+                s = blob.sentiment
+                d['sentiment'] = {}
+                d['sentiment']['polarity'] = s[0]
+                d['sentiment']['strength'] = s[1]
+                print (t.text, blob.sentiment)
+                opinion = opinion + 1
+                tweets.append(d)
+    # Ignore tweepy failures
+    except tweepy.error.TweepError:
+        pass
 
     return tweets
 
