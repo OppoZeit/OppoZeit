@@ -64,17 +64,11 @@ class Session:
                  json.dumps(payload),
                  headers=self.__JSON_HEADER)
 
-        if r.status_code != 200:
-            raise Exception()
-
         r = r.json()
-        if r['ResponseHeader']['Status'] != 'success':
-            #raise Exception(r['ResponseHeader'])
-            return []
-
-        self.__token = r['CreateSessionResult']['Token']
-        self.__secure_token = r['CreateSessionResult']['SecureToken']
-        self.__last_refresh = time()
+        if r['ResponseHeader']['Status'] == 'success':
+            self.__token = r['CreateSessionResult']['Token']
+            self.__secure_token = r['CreateSessionResult']['SecureToken']
+            self.__last_refresh = time()
 
     def __renew_session(self):
         request_headers = {'Token': None, 'CoordinationId': None}
@@ -89,7 +83,7 @@ class Session:
                  headers=self.__JSON_HEADER)
 
         if r.status_code != 200:
-            raise Exception("Got status code: %d" % r.status_code)
+            return []
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
@@ -135,11 +129,10 @@ class Session:
                  headers=self.__JSON_HEADER)
 
         if r.status_code != 200:
-            raise Exception("Got status code: %d" % r.status_code)
+            return []
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            #raise Exception(r['ResponseHeader'])
             return []
 
         ret = []
@@ -171,11 +164,11 @@ class Session:
                  headers=self.__JSON_HEADER)
 
         if r.status_code != 200:
-            raise Exception("Got status code: %d" % r.status_code)
+            return {}
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            raise Exception(r['ResponseHeader'])
+            return {}
 
         ret = {}
         for image in r['GetImageDetailsResult']['Images']:
@@ -257,11 +250,11 @@ class Session:
                  headers=self.__JSON_HEADER)
 
         if r.status_code != 200:
-            raise Exception("Got status code: %d" % r.status_code)
+            return {}
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            raise Exception(r['ResponseHeader'])
+            return {}
 
         download_token = (r['GetImageDownloadAuthorizationsResult']
                            ['Images'][0]
@@ -279,11 +272,11 @@ class Session:
                  headers=self.__JSON_HEADER)
 
         if r.status_code != 200:
-            raise Exception("Got status code: %d" % r.status_code)
+            return {}
 
         r = r.json()
         if r['ResponseHeader']['Status'] != 'success':
-            raise Exception(r['ResponseHeader'])
+            return {}
 
         url = r['CreateDownloadRequestResult']['DownloadUrls'][0]['UrlAttachment']  # noqa
 
