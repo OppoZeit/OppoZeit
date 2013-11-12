@@ -1,12 +1,18 @@
 from os import environ
+from flask.ext.bootstrap import Bootstrap
 from flask import redirect
 from eve import Eve
 from eve.methods.post import post
+from eve_docs import eve_docs
 
 from resources import before_insert_articles
 from settings import APP_NAME
 
 app = Eve(APP_NAME)
+
+Bootstrap(app)
+app.register_blueprint(eve_docs, url_prefix='/docs')
+
 app.on_insert_articles += before_insert_articles
 
 
