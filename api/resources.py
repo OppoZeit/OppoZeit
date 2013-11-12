@@ -10,8 +10,6 @@ def before_insert_articles(documents):
     from extractor import keywords
     g = Getty()
     for d in documents:
-        # Copy cps_id to _id since we want to use it as unique identifier
-        d['_id'] = d['cps_id']
         d['sentiment'] = calculateSentiment(d['url'])
         d['related_tweets'] = findSemanticTweets(d['url'])
         d['getty_images'] = g.findAndReturn(
