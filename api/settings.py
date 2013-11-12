@@ -4,7 +4,7 @@ from os import environ
 from urlparse import urlparse
 from resources import article
 
-APP_NAME = 'OppoZeit'
+API_NAME = 'OppoZeit'
 URL_PREFIX = 'api'
 
 if 'MONGOLAB_URI' in environ:
@@ -15,7 +15,7 @@ if 'MONGOLAB_URI' in environ:
     MONGO_PASSWORD = url.password
     MONGO_DBNAME = url.path[1:]
 else:
-    MONGO_DBNAME = APP_NAME
+    MONGO_DBNAME = API_NAME
 
 DOMAIN = {
     'articles': article,

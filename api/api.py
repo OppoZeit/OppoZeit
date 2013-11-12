@@ -6,9 +6,9 @@ from eve.methods.post import post
 from eve_docs import eve_docs
 
 from resources import before_insert_articles
-from settings import APP_NAME
+from settings import API_NAME
 
-app = Eve(APP_NAME)
+app = Eve(API_NAME)
 
 Bootstrap(app)
 app.register_blueprint(eve_docs, url_prefix='/docs')
