@@ -1,18 +1,18 @@
 from os import environ
+from flask import redirect
 from eve import Eve
 from eve.methods.post import post
-from flask import render_template
 
 from resources import before_insert_articles
 from settings import APP_NAME
 
-app = Eve(APP_NAME, template_folder='static')
+app = Eve(APP_NAME)
 app.on_insert_articles += before_insert_articles
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return redirect("http://oppozeit.me")
 
 
 def update_if_exists(articles):
