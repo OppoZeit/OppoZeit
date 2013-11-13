@@ -7,6 +7,7 @@ angular.module('seedhackApp', [
   'ngRoute',
   "angles",
   'ngAnimate',
+  'ui.select2'
 ])
   .config ($routeProvider) ->
     $routeProvider
@@ -21,3 +22,6 @@ angular.module('seedhackApp', [
         controller: 'CompareCtrl'
       .otherwise
         redirectTo: '/'
+  .config ["$httpProvider", ($httpProvider) ->
+    $httpProvider.defaults.useXDomain = true
+  ]

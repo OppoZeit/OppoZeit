@@ -3772,16 +3772,10 @@ angular.module('seedhackApp')
       ]`
 
     all: ->
-      # $http.get("https://oppozeit.herokuapp.com/api/articles")
-      #   .success (response) ->
-      #     # console.log response._items
-      # $http(
-      #   url: "https://oppozeit.herokuapp.com/api/articles"
-      #   method: "GET"
-      # ).success((data, status, headers, config) ->
-      #   return data
-      # )
-      return stories
+      # private fields http://docs.angularjs.org/error/$parse:isecprv
+      $http.get("https://oppozeit.herokuapp.com/api/articles")
+        .success (res) ->
+          return res
 
     get: (id) ->
       return story_1
@@ -3789,7 +3783,11 @@ angular.module('seedhackApp')
       #   if story.id == id
       #     return story
 
-      # story = $http.get("https://oppozeit.herokuapp.com/api/articles/"+id)
+      # where_id = encodeURIComponent('{"cps_id": "'+id+'"}')
+      # url = 'https://oppozeit.herokuapp.com/api/articles?'+where_id
+      # console.log url
+
+      # $http.get(rul)
       #   .success (response) ->
       #     consloe.log response.data
       # return story

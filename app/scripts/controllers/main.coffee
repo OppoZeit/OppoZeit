@@ -2,12 +2,12 @@
 
 angular.module('seedhackApp')
   .controller 'MainCtrl', ($scope, storyStorage, $location, $http) ->
-    $scope.stories = storyStorage.all()
-    # console.log storyStorage.all()
-    # $http.get("https://oppozeit.herokuapp.com/api/articles",
-    # ).success (data, status) ->
-    #   $scope.stories = data
-    #   console.log $scope.stories
+
+    $http.get("https://oppozeit.herokuapp.com/api/articles")
+      .success (stories) ->
+        $scope.stories = $scope.getItems(stories)
+
+    $scope.getItems = (obj) -> obj._items
 
     $scope.$watch 'stories', () ->
       for story in $scope.stories
@@ -29,7 +29,7 @@ angular.module('seedhackApp')
             segmentStrokeColor: "#fff"
             segmentStrokeWidth: 1
             percentageInnerCutout: 75
-            animation: true
+            animation: false
             animationSteps: 100
             animationEasing: "easeOutBounce"
             animateRotate: true
@@ -37,5 +37,6 @@ angular.module('seedhackApp')
             onAnimationComplete: null
           }
         }
+
     $scope.showStory = (story) ->
-      $location.path("/story/"+story._id)
+      $location.path("/story/"+story.cps_id)

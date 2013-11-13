@@ -4,7 +4,7 @@
 
 <div id="compare" class="wrapper">
   <div id="left-side" class="inner-left" ng-click="leftArticleToggle($event)" >
-    <div class="bgimage" style="background: url({{story.articles[0].imageUrls[0]}}); background-size: cover; background-position:center; "></div>
+    <div class="bgimage" style="background: url({{story.articles[0].image.src}}); background-size: cover; background-position:center; "></div>
     <div class="inneroverlay"></div>
     <div class="txtcontent">
       <div class="inner">
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div id="right-side" class="inner-right" ng-click="rightArticleToggle($event)">
-    <div class="bgimage" style="background: url({{story.articles[1].imageUrls[0]}}); background-size: cover; background-position:center; "></div>
+    <div class="bgimage" style="background: url({{story.articles[1].image.src}}); background-size: cover; background-position:center; "></div>
     <div class="inneroverlay"></div>
     <div class="txtcontent">
       <div class="inner">
