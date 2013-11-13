@@ -20,7 +20,7 @@ angular.module('seedhackApp')
               a1.image.src = 'http://cdn.pouted.com/wp-content/uploads/2013/02/skyscrapers-at-night.jpg'
             $scope.story.articles.push(a1)
 
-        $http.get(article_url(related_ids[]))
+        $http.get(article_url(related_ids[1]))
           .success (story) ->
             a2 = story._items[0]
             if a2.image == null
