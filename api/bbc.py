@@ -49,6 +49,7 @@ class Juicer(Resource):
         articles = self.request('articles.json', binding='url', limit=limit,
                                 offset=offset, before=before, after=after,
                                 where=where)
+        articles = [a for a in articles if a['image']]
         if reference:
             ids = [a['cps_id'] for a in articles] + [reference['cps_id']]
             related = lambda skip: [i for i in ids if i != skip]
