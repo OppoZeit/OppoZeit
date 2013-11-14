@@ -6,6 +6,8 @@ from resources import article
 
 API_NAME = 'OppoZeit'
 URL_PREFIX = 'api'
+if 'EVE_DEBUG' in environ:
+    DEBUG = True
 
 if 'MONGOLAB_URI' in environ:
     url = urlparse(environ['MONGOLAB_URI'])
