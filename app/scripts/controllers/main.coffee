@@ -3,6 +3,12 @@
 angular.module('seedhackApp')
   .controller 'MainCtrl', ($scope, storyStorage, $location, $http) ->
 
+    randomColorValue = () ->
+      return Math.floor((Math.random()*50)+1)
+
+    $scope.randomColor = () ->
+      return 'rgb('+22+','+22+','+randomColorValue()+')'
+
     $http.get("https://oppozeit.herokuapp.com/api/articles")
       .success (stories) ->
         $scope.stories = $scope.getItems(stories)

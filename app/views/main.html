@@ -12,7 +12,7 @@
       <div ng-animate="'animate'" ng-repeat="story in stories | limitTo:10">
         <a ng-click="showStory(story)">
           <div class="row"> <!-- each box  -->
-            <div class="col-lg-10 storyBox" ng-style="{'background-image': 'url(\'' + story.image.src + '\')'}; " >
+            <div class="col-lg-10 storyBox" ng-style="{ 'background-color': randomColor, 'background-image': 'url(\'' + story.image.src + '\')'}; " >
               <div class="storyBoxOverlay"></div>
               <div class="overlaybox"></div>
               <div class="row storyBoxTitle">
@@ -40,7 +40,7 @@
 </div>
 
 <div class="headerlogo">
-  <img src="../img/logo.png">
+  <img src="images/logo.png">
 </div>
 <!-- <div class="row">
   <div class="titleUnit">
