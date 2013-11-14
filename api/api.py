@@ -1,6 +1,6 @@
 from os import environ
 from flask.ext.bootstrap import Bootstrap
-from flask import redirect
+from flask import send_from_directory
 from eve import Eve
 from eve.methods.post import post
 from eve_docs import eve_docs
@@ -16,9 +16,29 @@ app.register_blueprint(eve_docs, url_prefix='/docs')
 app.on_insert_articles += before_insert_articles
 
 
+@app.route('/scripts/<path:filename>')
+def scripts(filename):
+    return send_from_directory(app.root_path + '/app/dist/scripts/', filename)
+
+
+@app.route('/styles/<path:filename>')
+def styles(filename):
+    return send_from_directory(app.root_path + '/app/dist/styles/', filename)
+
+
+@app.route('/images/<path:filename>')
+def images(filename):
+    return send_from_directory(app.root_path + '/app/dist/images/', filename)
+
+
+@app.route('/views/<path:filename>')
+def views(filename):
+    return send_from_directory(app.root_path + '/app/dist/views/', filename)
+
+
 @app.route("/")
 def index():
-    return redirect("http://oppozeit.me")
+    return send_from_directory(app.root_path + '/app/dist/', 'index.html')
 
 
 def update_if_exists(articles):
