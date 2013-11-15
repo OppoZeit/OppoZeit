@@ -1,0 +1,35 @@
+<div ng-bind-html="myHTML()">
+
+</div>
+
+<div id="compare" class="wrapper">
+  <div id="left-side" class="inner-left" ng-click="leftArticleToggle($event)" >
+    <!-- <div class="bgimage" style="background: url({{stories[1].imageUrls[0]}}); background-size: cover; background-position:center; "></div>-->
+    <canvas id="leftcanvas"></canvas>
+    <div class="inneroverlay"></div>
+    <div class="txtcontent">
+      <div class="inner">
+        <h1>{{stories[1].title}}</h1>
+        <div class="content">
+          <p>{{stories[1].snippet}}</p>
+          <p><button id="twitterleftbut" type="button" class="btn btn-danger">Tweet &amp; Vote</button> &nbsp;<a>No way!</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="right-side" class="inner-right" ng-click="rightArticleToggle($event)">
+    <!-- <div class="bgimage" style="background: url({{stories[1].imageUrls[1]}}); background-size: cover; background-position:center; "></div>-->
+    <canvas id="leftcanvas"></canvas>
+    <div class="inneroverlay"></div>
+    <div class="txtcontent">
+      <div class="inner">
+        <h1>{{stories[0].title}}</h1>
+        <div class="content">
+          <p>{{stories[0].snippet}}</p>
+          <p><button id="twitterleftbut" type="button" class="btn btn-primary">Tweet &amp; Vote</button> &nbsp;<a>No way!</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="comparefooter"><div class="footerleft"><p>{{procon().leftpercentage}}%</p></div><div class="footerright"><p>{{procon().rightpercentage}}%</p></div></div>
+</div>

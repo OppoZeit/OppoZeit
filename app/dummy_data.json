@@ -1,0 +1,140 @@
+{
+    "_id" : "the_mirror_3d4842d613bb5d5e16169f0559a3a0810a601e89",
+    "updated" : ISODate("2013-11-10T11:10:06.000Z"),
+    "description" : "The protesters, many waving placards, gathered in the city centre and chanted: Job cuts go away, shipbuilding is here to stay",
+    "cps_id" : "the_mirror_3d4842d613bb5d5e16169f0559a3a0810a601e89",
+    "format" : "TextualFormat",
+    "url" : "http://www.mirror.co.uk/news/uk-news/bae-closures-shipbuilding-protests-bae-2715191",
+    "organisations" : [
+        {
+            "kind" : "Organisation",
+            "name" : "BAE Systems",
+            "uri" : "http://dbpedia.org/resource/BAE_Systems",
+            "longitude" : null,
+            "latitude" : null,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Organisation"
+        },
+        {
+            "kind" : "Organisation",
+            "name" : "Liberal Democrats",
+            "uri" : "http://dbpedia.org/resource/Liberal_Democrats",
+            "longitude" : null,
+            "latitude" : null,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Organisation"
+        }
+    ],
+    "image" : {
+        "origin" : "http://www.mirror.co.uk/incoming/article2682983.ece/ALTERNATES/s615/Dockyard-2682983.jpg",
+        "src" : "http://www.mirror.co.uk/incoming/article2682983.ece/ALTERNATES/s615/Dockyard-2682983.jpg",
+        "created_at" : ISODate("2013-11-07T08:07:24.000Z"),
+        "updated_at" : ISODate("2013-11-07T08:07:24.000Z"),
+        "alt" : null,
+        "id" : 263265,
+        "data_class" : "Image"
+    },
+    "title" : "Shipbuilding protests as BAE prepares to make 1,775 redundant in Portsmouth",
+    "misc" : [
+        {
+            "kind" : "Thing",
+            "name" : "Britain",
+            "uri" : "http://dbpedia.org/resource/Britain",
+            "longitude" : null,
+            "latitude" : null,
+            "asciiname" : null,
+            "rdf_type" : "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+            "kind" : "Thing",
+            "name" : "Michael Hancock",
+            "uri" : "http://dbpedia.org/resource/Michael_Hancock",
+            "longitude" : null,
+            "latitude" : null,
+            "asciiname" : null,
+            "rdf_type" : "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+            "kind" : "Thing",
+            "name" : "Portsmouth South (UK Parliament constituency)",
+            "uri" : "http://dbpedia.org/resource/Portsmouth_South_%28UK_Parliament_constituency%29",
+            "longitude" : -1.079,
+            "latitude" : 50.787,
+            "asciiname" : null,
+            "rdf_type" : "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+            "kind" : "Thing",
+            "name" : "Thing",
+            "uri" : "http://dbpedia.org/resource/Thing",
+            "longitude" : null,
+            "latitude" : null,
+            "asciiname" : null,
+            "rdf_type" : "http://www.w3.org/2002/07/owl#Thing"
+        }
+    ],
+    "storylines" : [],
+    "created" : ISODate("2013-11-10T11:10:06.000Z"),
+    "themes" : [],
+    "source" : "TheMirror",
+    "places" : [
+        {
+            "kind" : "Place",
+            "name" : "Bristol",
+            "uri" : "http://dbpedia.org/resource/Bristol",
+            "longitude" : -2.592,
+            "latitude" : 51.4587,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        },
+        {
+            "kind" : "Place",
+            "name" : "Filton",
+            "uri" : "http://dbpedia.org/resource/Filton",
+            "longitude" : -2.5692,
+            "latitude" : 51.5293,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        },
+        {
+            "kind" : "Place",
+            "name" : "Glasgow",
+            "uri" : "http://dbpedia.org/resource/Glasgow",
+            "longitude" : -4.259,
+            "latitude" : 55.858,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        },
+        {
+            "kind" : "Place",
+            "name" : "Portsmouth",
+            "uri" : "http://dbpedia.org/resource/Portsmouth",
+            "longitude" : -1.08333,
+            "latitude" : 50.8167,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        },
+        {
+            "kind" : "Place",
+            "name" : "Rosyth",
+            "uri" : "http://dbpedia.org/resource/Rosyth",
+            "longitude" : -3.43226,
+            "latitude" : 56.0339,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        },
+        {
+            "kind" : "Place",
+            "name" : "Southampton",
+            "uri" : "http://dbpedia.org/resource/Southampton",
+            "longitude" : -1.40416,
+            "latitude" : 50.897,
+            "asciiname" : null,
+            "rdf_type" : "http://dbpedia.org/ontology/Place"
+        }
+    ],
+    "published" : ISODate("2013-11-09T21:04:05.000Z"),
+    "highlight" : false,
+    "events" : [],
+    "people" : []
+}
