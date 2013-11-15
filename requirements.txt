@@ -1,0 +1,2 @@
+git+https://github.com/nicolaiarocci/eve.git@develop#egg=Eve==0.1.2
+git+https://github.com/charlesflynn/eve-docs.git#egg=Eve-docs==0.1.0
