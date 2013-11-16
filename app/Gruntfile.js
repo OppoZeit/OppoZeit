@@ -17,6 +17,23 @@ module.exports = function (grunt) {
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
     },
+    shell: {
+      'git-checkout-deploy': {
+        command: 'git checkout deploy '
+      },
+      'git-merge-master': {
+        command: 'git merge master'
+      },
+      'git-add-dist': {
+        command: 'git add dist'
+      },
+      'git-commit-build': {
+        command: 'git commit -am "build"'
+      },
+      'heroku': {
+        command: 'git push heroku deploy:master'
+      }
+    },
     watch: {
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -324,6 +341,9 @@ module.exports = function (grunt) {
     }
   });
 
+  // load the grunt-shell task:
+  grunt.loadNpmTasks('grunt-shell')
+
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -359,6 +379,15 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'shell:git-checkout-deploy',
+    'shell:git-merge-master',
+    'build',
+    'shell:git-add-dist',
+    'shell:git-commit-build',
+    'shell:heroku'
   ]);
 
   grunt.registerTask('default', [
