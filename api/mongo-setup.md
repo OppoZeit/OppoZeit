@@ -2,7 +2,7 @@
 ### Command line
 
 **Export DB** from MongoLab & copy/paste the line and set your directory
-> mongodump -h ds053218.mongolab.com:53218 -d polaropposite -u fixiecoder -p opposite_12 -o <your-dir>  
+> mongodump -h ds053218.mongolab.com:53218 -d polaropposite -u fixiecoder -p opposite_12 -o your-directory  
 
 **Import DB** into local Mongo & copy/paste the line where download dir located. 
 > mongorestore -d polaropposite-test -c articles  articles.bson
