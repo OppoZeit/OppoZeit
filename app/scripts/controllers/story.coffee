@@ -13,13 +13,17 @@ angular.module('seedhackApp')
       .success (root_story) ->
         related_ids = root_story._items[0].related
 
-        for related_article_number in [0,1]
-          $http.get(article_url(related_ids[related_article_number]))
-            .success (story) ->
-              article = story._items[0]
-              if article.image == null
-                article.image.src = 'http://cdn.pouted.com/wp-content/uploads/2013/02/skyscrapers-at-night.jpg'
-              $scope.story.articles.push(article)
+        article = root_story._items[0]
+        if article.image == null
+          article.image.src = 'http://cdn.pouted.com/wp-content/uploads/2013/02/skyscrapers-at-night.jpg'
+        $scope.story.articles.push(article)
+        
+        $http.get(article_url(related_ids[0]))
+          .success (story) ->
+            article = story._items[0]
+            if article.image == null
+              article.image.src = 'http://cdn.pouted.com/wp-content/uploads/2013/02/skyscrapers-at-night.jpg'
+            $scope.story.articles.push(article)
 
     $scope.leftArticleToggle = (e) ->
       if e.target.id is "twitterleftbut"
