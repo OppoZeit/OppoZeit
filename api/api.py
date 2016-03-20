@@ -41,13 +41,18 @@ def index():
     return send_from_directory(app.root_path + '/dist/', 'index.html')
 
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(app.root_path + '/dist/', 'favicon.ico')
+
+
 def update_if_exists(articles):
     with app.test_request_context():
         # FIXME: Find a way to update existing articles, but Eve has a deep
         # rooted assumption that _id is an ObjectId
         existing = [article for article in articles
                     if app.data.find_one('articles', cps_id=article['cps_id'])]
-    return [article for article in articles if not article in existing]
+    return [article for article in articles if article not in existing]
 
 
 def insert_or_update(articles):
