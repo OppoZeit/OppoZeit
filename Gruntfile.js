@@ -70,6 +70,13 @@ module.exports = function (grunt) {
         }]
       }
     },
+    bower: {
+      install: {
+        options: {
+          copy: false
+        }
+      }
+    },
     connect: {
       options: {
         port: 9000,
@@ -330,6 +337,8 @@ module.exports = function (grunt) {
   // load the grunt-shell task:
   grunt.loadNpmTasks('grunt-shell')
 
+  grunt.loadNpmTasks('grunt-bower-task');
+
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -354,6 +363,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'bower',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
