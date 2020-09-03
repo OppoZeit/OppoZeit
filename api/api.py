@@ -3,7 +3,7 @@ from flask.ext.bootstrap import Bootstrap
 from flask import send_from_directory
 from eve import Eve
 from eve.methods.post import post
-from eve_docs import eve_docs
+from eve_swagger import get_swagger_blueprint
 
 from resources import before_insert_articles
 from settings import API_NAME
@@ -11,7 +11,12 @@ from settings import API_NAME
 app = Eve(API_NAME)
 
 Bootstrap(app)
-app.register_blueprint(eve_docs, url_prefix='/docs')
+app.register_blueprint(get_swagger_blueprint())
+
+app.config['SWAGGER_INFO'] = {
+    'title': 'Oppozeit',
+    'version': '0.0.1',
+}
 
 app.on_insert_articles += before_insert_articles
 

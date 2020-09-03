@@ -1,2 +1,2 @@
 Eve==0.6.3
-Eve-docs==0.1.4
+Eve-Swagger==0.1.1
