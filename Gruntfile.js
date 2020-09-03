@@ -10,6 +10,7 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
+  const sass = require('node-sass');
 
   grunt.initConfig({
     yeoman: {
@@ -175,7 +176,9 @@ module.exports = function (grunt) {
     },
     sass: {
       options: {
-        loadPath: '<%= yeoman.app %>/bower_components',
+        implementation: sass,
+        sourceMap: true,
+        includePaths: ['<%= yeoman.app %>/bower_components'],
       },
       dist: {
         files: [{
