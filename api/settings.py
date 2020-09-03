@@ -1,7 +1,7 @@
 """Global API configuration."""
 
 from os import environ
-from urlparse import urlparse
+from urllib.parse import urlparse
 from resources import article
 
 API_NAME = 'OppoZeit'
