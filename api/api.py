@@ -1,5 +1,5 @@
 from os import environ
-from flask.ext.bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
 from flask import send_from_directory
 from eve import Eve
 from eve.methods.post import post

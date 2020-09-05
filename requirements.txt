@@ -1,3 +1,4 @@
 Eve==1.1.2
 Eve-Swagger==0.1.1
+Flask==1.1.2
 Flask-Bootstrap==3.3.7.1
