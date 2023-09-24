@@ -3,7 +3,7 @@ simplejson==3.3.1
 socketpool==0.5.3
 wsgiref==0.1.2
 Eve==1.1.2
-tweepy==2.1
+tweepy==3.0
 textblob==0.8.0
 boilerpipe==1.2.0.0
 requests==2.31.0
